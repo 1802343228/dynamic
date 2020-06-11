@@ -1,0 +1,70 @@
+<!--pages/message/alumni_info/alimni_info.wxml-->
+<view class="alimni-info-back">
+<view class="alimni-info">
+<image class="alimni-info-avatar" src="https://avatars3.githubusercontent.com/u/59445871?s=460&u=da5694544e03959d2e2c54ea5b2a29c67174cbcc&v=4"/>
+<text class="alimni-info-under">mob</text>
+
+<text class="alimni-info-user">{{title}}</text>
+<!-- <text class="alimni-info-time">·1天前</text> -->
+<text class="alimni-info-jubao">举报</text>
+<view class="alimni-info-content">{{content}}</view>
+<image class="alimni-info-img" src="https://n.sinaimg.cn/sinacn20110/575/w1920h1055/20190508/86b0-hwsffza7766335.jpg"/>
+<view>
+
+<view class="alimni-info-play">
+<image class="alimni-info-star" src="/asstes/alimni_icon/icon_shoucang.png"/>
+<text class="alimni-info-star-text">收藏</text>
+
+<image bindtap="changeComment" class="alimni-info-pinglun" src="/asstes/icon/pinglun_black_icon.png"/>
+<!-- <text bindtap="changeComment" class="alimni-info-pinglun-text">评论</text> -->
+<text class="alimni-info-dianzan-text">{{thumbs}}</text>
+<image class="alimni-info-dianzan" src="/asstes/alimni_icon/icon_dianzan.png"/>
+</view>
+
+</view>
+</view>
+</view>
+
+
+<view class="alimni-info-commonts">
+
+<view class="alimni-info-commonts-row">
+<view class="alimni-info-commonts-title">共{{commentsNum}}条评论</view>
+
+
+<block wx:for="{{comments}}" wx:for-item="item">
+<view bindtap="changeReply" data-comment="{{item.pkCommentId}}">
+<image class="alimni-info-commonts-avatar" src="https://avatars3.githubusercontent.com/u/59445871?s=460&u=da5694544e03959d2e2c54ea5b2a29c67174cbcc&v=4"/>
+<text class="alimni-info-commonts-user">西罗</text>
+<!-- <text class="alimni-info-commonts-time">·1天前</text> -->
+<image class="alimni-info-commonts-dianzan" src="/asstes/alimni_icon/icon_dianzan.png"/>
+<text class="alimni-info-commonts-content">{{item.content}}</text>
+
+<block wx:for="{{item.replyComments}}" wx:for-item="reply">
+<view>
+<image class="alimni-info-commonts-avatar" src="https://avatars3.githubusercontent.com/u/59445871?s=460&u=da5694544e03959d2e2c54ea5b2a29c67174cbcc&v=4"/>
+<text class="alimni-info-commonts-user">路人</text>
+<text class="alimni-info-commonts-reply">回复</text>
+<text class="alimni-info-commonts-reply-user">西罗:</text>
+<text class="alimni-info-commonts-content">{{reply.content}}</text>
+</view>
+</block> 
+</view>
+
+</block>
+
+
+
+</view>
+</view>
+
+
+<view wx:if="{{isComment}}" class="alimni-info-reply">
+<image class="alimni-info-reply-cra" src="/asstes/icon/camera_icon.png"/>
+<view class="alimni-info-reply-input">
+<input wx:if="{{!isReply}}" bindinput="inputContent" value="{{commentContent}}" maxlength="100" auto-focus class="alimni-info-reply-input-con" placeholder="评论"/>
+<input wx:if="{{isReply}}" bindinput="inputContent" value="{{commentContent}}" maxlength="100" auto-focus class="alimni-info-reply-input-con" placeholder="回复 西罗"/>
+<!-- <image class="alimni-info-reply-icon" src="/asstes/icon/xiaolian_icon.png"/> -->
+</view>
+<text class="alimni-info-reply-btn" bindtap="sendComment">发送</text>
+</view>

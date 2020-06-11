@@ -1,0 +1,11 @@
+<view class="post">
+<view class="post-row">
+<textarea placeholder="在此输入正文">
+<view class="post-pic">
+<image class="post-pic-icon" src="/asstes/icon/picture_icon.png"/>
+<view class="post-pic-text">添加照片</view>
+</view>
+</textarea>
+</view>
+</view>
+

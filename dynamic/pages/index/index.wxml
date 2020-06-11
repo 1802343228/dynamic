@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<view class="alumni-title">
+<image class="alumni-image" src="https://avatars3.githubusercontent.com/u/59445871?s=460&u=da5694544e03959d2e2c54ea5b2a29c67174cbcc&v=4"/>
+<view bindtap="bindPost" class="alumni-post">
+发帖
+</view>
+</view>
+
+
+<view class='topTabSwiper'>
+    <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}'  bindtap='checkPost'>
+    <image class="tab-icon" src="/asstes/alimni_icon/icon_fabu.png"/>
+    <text class="tab-title">发布</text>
+    </view>
+    <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}'  bindtap='checkMess'>
+    <image class="tab-icon" src="/asstes/icon/xiaoxi_black_icon.png"/>
+    <text class="tab-title">消息</text>
+    </view>
+    <view class='tab  {{currentData == 2 ? "tabBorer" : ""}}'  bindtap='checkFollow'>
+    <image class="tab-icon" src="/asstes/alimni_icon/icon_shoucang1.png"/>
+    <text class="tab-title">收藏</text>
+    </view>
+</view>
+
+
+<block wx:for="{{dynamic}}" wx:key="">
+<view class="alimni" bindtap="changeInfo" data-title="{{item.title}}" data-content="{{item.content}}" data-thumbs="{{item.thumbs}}" data-comment="{{item.comments}}" data-id="{{item.pkDynamicId}}">
+<image class="alimni-info-avatar" src="https://avatars3.githubusercontent.com/u/59445871?s=460&u=da5694544e03959d2e2c54ea5b2a29c67174cbcc&v=4"/>
+<text class="alimni-info-user">mob</text>
+<text class="alimni-info-time">·1天前</text>
+<image class="alimni-info-icon" src="/asstes/icon/gengduo_icon.png"/>
+<view class="alimni-info-content">{{item.title}}</view> 
+<image class="alimni-info-img" src="https://n.sinaimg.cn/sinacn20110/575/w1920h1055/20190508/86b0-hwsffza7766335.jpg"/>
+
+<!-- <view class="alimni-under" > -->
+<view class="alimni-border">
+<image class="alimni-icon" src="/asstes/icon/fill_icon.png"/>
+<text class="alimni-comment">评论</text>
+</view>
+<text class="alimni-info-dianzan-text">{{item.thumbs}}</text>
+<image class="alimni-info-dianzan" src="/asstes/alimni_icon/icon_dianzan.png"/>
+<!-- </view> -->
+</view>
+</block>
+
+
